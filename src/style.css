@@ -1,0 +1,24 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.book-list {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.book {
+  padding: 5px;
+  width: 350px;
+}
