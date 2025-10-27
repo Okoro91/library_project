@@ -6,13 +6,14 @@ const newBook = document.querySelector("#new-book");
 
 const myLibrary = [];
 
-function Book(id, title, author, pages, details, size, link) {
+function Book(id, img, title, author, pages, details, size, link) {
   if (!new.target) {
-    throw error("new is required");
+    throw new Error("new is required");
   }
   this.id = id;
-  this.author = author;
+  this.img = img;
   this.title = title;
+  this.author = author;
   this.pages = pages;
   this.details = details;
   this.size = size;
@@ -26,9 +27,10 @@ Book.prototype.info = function () {
   }`;
 };
 
-function addBookToLibrary(title, author, pages, details, size, link) {
+function addBookToLibrary(img, title, author, pages, details, size, link) {
   const newBook = new Book(
     crypto.randomUUID(),
+    img,
     title,
     author,
     pages,
@@ -39,8 +41,6 @@ function addBookToLibrary(title, author, pages, details, size, link) {
   myLibrary.push(newBook);
   return newBook;
 }
-
-console.log(data);
 
 data.forEach((book) => {
   addBookToLibrary(...book);
@@ -67,6 +67,7 @@ const displayBook = () => {
     .map(
       (book) => `
       <div class="book">
+        <img src="${book.img}" alt="${book.title}">
         <h3>${book.title}</h3>
         <p><strong>Author:</strong> ${book.author}</p>
         <p><strong>Pages:</strong> ${book.pages}</p>
@@ -82,8 +83,6 @@ const displayBook = () => {
     )
     .join("");
 };
-
-console.log(myLibrary);
 
 displayBook();
 
