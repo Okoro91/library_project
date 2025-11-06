@@ -6,19 +6,18 @@ const newBook = document.querySelector("#new-book");
 
 const myLibrary = [];
 
-function Book(id, img, title, author, pages, details, size, link) {
-  if (!new.target) {
-    throw new Error("new is required");
+class Book {
+  constructor(id, img, title, author, pages, details, size, link) {
+    this.id = id;
+    this.img = img;
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.details = details;
+    this.size = size;
+    this.link = link;
+    this.read = false;
   }
-  this.id = id;
-  this.img = img;
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.details = details;
-  this.size = size;
-  this.link = link;
-  this.read = false;
 }
 
 Book.prototype.info = function () {
